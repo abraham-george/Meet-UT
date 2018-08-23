@@ -1,0 +1,56 @@
+{% extends "/views/home.html" %}
+{% block content %}
+	<h5>Manage your auto</h5>
+    <hr>
+    
+    <title>jQuery UI Autocomplete - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+	  var availableTags = [
+	      "ActionScript",
+	      "AppleScript",
+	      "Asp",
+	      "BASIC",
+	      "C",
+	      "C++",
+	      "Clojure",
+	      "COBOL",
+	      "ColdFusion",
+	      "Erlang",
+	      "Fortran",
+	      "Groovy",
+	      "Haskell",
+	      "Java",
+	      "JavaScript",
+	      "Lisp",
+	      "Perl",
+	      "PHP",
+	      "Python",
+	      "Ruby",
+	      "Scala",
+	      "Scheme"
+	    ];
+	    /* var obj = {
+                'Abraham': 'Abraham', 
+                'George': 'George',
+              } */
+              //[{"id":"Crex crex","label":"Corncrake","value":"Corncrake"},{"id":"Emberiza calandra","label":"Corn Bunting","value":"Corn Bunting"},{"id":"Phalacrocorax carbo","label":"Great Cormorant","value":"Great Cormorant"},{"id":"Phalacrocorax pygmeus","label":"Pygmy Cormorant","value":"Pygmy Cormorant"},{"id":"Calonectris borealis","label":"Cory`s Shearwater","value":"Cory`s Shearwater"},{"id":"Phalacrocorax fuscicollis","label":"Indian Cormorant","value":"Indian Cormorant"},{"id":"Phalacrocorax africanus","label":"Long-Tailed Cormorant","value":"Long-Tailed Cormorant"},{"id":"Phalacrocorax auritus","label":"Double-crested Cormorant","value":"Double-crested Cormorant"}]
+    $( "#tags" ).autocomplete({
+      source: '/ind'
+    });
+  } );
+  
+  </script>
+</head>
+<body>
+ 
+<div class="ui-widget">
+  <label for="tags">Tags: </label>
+  <input name="tags" id="tags">
+</div>
+      
+{% endblock %}

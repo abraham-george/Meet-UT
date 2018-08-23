@@ -1,0 +1,25 @@
+{% extends "/views/home.html" %}
+{% block content %}
+		<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{theme.image_url}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{theme.name}}</h5>
+    <p class="card-text">{{theme.description}}</p>
+    <a href="/subscribe?val={{theme.key.urlsafe()}}" class="btn btn-primary">Subscribe</a>
+  </div>
+</div>
+<div>
+{% if events %}
+	      {% for r in events %}
+	      	<div class="card" style="width: 18rem;">
+	  <img class="card-img-top" src={{r.cover_image}} alt="Card image cap">
+	  <div class="card-body">
+	    <h5 class="card-title">{{r.name}}</h5>
+	    <p class="card-text">{{r.description}}</p>
+	    <a href="#" class="btn btn-primary">See More</a>
+	  </div>
+	</div>
+	      {% endfor%}
+	  {% endif %}
+</div>
+{% endblock %}	    

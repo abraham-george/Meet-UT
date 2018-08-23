@@ -1,0 +1,4 @@
+cron:
+- description: Mail the user
+  url: /send_mail
+  schedule: every monday 09:00

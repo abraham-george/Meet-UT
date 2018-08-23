@@ -1,0 +1,53 @@
+{% extends "/views/home.html" %}
+{% block content %}
+	<h5>Manage your uploads</h5>
+    <hr>
+    <script>
+    Dropzone.options.myDropzone = {
+
+    		  // Prevents Dropzone from uploading dropped files immediately
+    		  autoProcessQueue: false,
+    		  parallelUploads: 100,
+    		  uploadMultiple: true,
+    		  
+    		  init: function() {
+    		    var submitButton = document.querySelector("#submit-all")
+    		        myDropzone = this; // closure
+
+    		    submitButton.addEventListener("click", function() {
+    		    	
+    		      myDropzone.processQueue(); // Tell Dropzone to process all queued files.
+    		    });
+
+    		    // You might want to show the submit button only when 
+    		    // files are dropped here:
+    		    this.on("addedfile", function() {
+    		      // Show submit button here and/or inform user to click it.
+    		    });
+
+    		  }
+    /* uploadprogress: function(file, progress, bytesSent) {
+        if (a.previewElement) {
+            var progressElement = file.previewElement.querySelector("[data-dz-uploadprogress]");
+            progressElement.style.width = progress + "%";
+            progressElement.querySelector(".progress-text").textContent = progress + "%";
+        }
+    } */
+    
+    		};
+    
+    </script>
+    
+    
+<form action="/upload" class="dropzone" id="my-dropzone"></form>
+<button id="submit-all">Submit all files</button>
+
+<div class="progress">
+    <div class="progress-bar progress-bar-primary" role="progressbar" data-dz-uploadprogress>
+        <span class="progress-text"></span>
+    </div>
+</div>
+
+
+      
+{% endblock %}

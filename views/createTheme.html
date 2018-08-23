@@ -1,0 +1,19 @@
+{% extends "/views/home.html" %}
+{% block content %}
+      <form action='/createTheme' method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="themeName">Theme Name</label>
+    <input class="form-control" name="themeName" type="text" placeholder="Enter theme name">
+  </div>
+  <div class="form-group">
+    <label for="themeDescription">Theme Description</label>
+    <textarea class="form-control" name="themeDescription" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="themeImage">Upload Image</label>
+    <input type="file" class="form-control-file" id="themeImage" name="themeImage">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</br>
+{% endblock %}

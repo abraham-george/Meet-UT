@@ -1,0 +1,7 @@
+indexes:
+- kind: Events
+  properties:
+  - name: cover_image
+  - name: name
+    
+

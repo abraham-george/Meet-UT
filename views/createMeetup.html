@@ -1,0 +1,88 @@
+{% extends "/views/home.html" %}
+{% block content %}
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApjQAcLNYbC2pd3I-ID_spzK4yZhEWE3o&v=3.exp&sensor=false&libraries=places"></script>
+	<script>
+ function initialize() {
+	  var input = document.getElementById('searchTextField');
+	  new google.maps.places.Autocomplete(input);
+	}
+
+	google.maps.event.addDomListener(window, 'load', initialize);
+ </script>
+	<script>
+    Dropzone.options.myAwesomeDropzone = {
+
+    		  // Prevents Dropzone from uploading dropped files immediately
+    		  autoProcessQueue: false,
+    		  parallelUploads: 100,
+    		  uploadMultiple: true,
+    		  
+    		  init: function() {
+    			myDropzone = this; // closure
+    		    var submitButton = document.querySelector("#submit-all")
+    		        
+
+    		    submitButton.addEventListener("click", function(e) {
+    		    	
+    		    	e.preventDefault();
+    		        e.stopPropagation();	
+    		      myDropzone.processQueue(); // Tell Dropzone to process all queued files.
+    		    });
+
+    		    // You might want to show the submit button only when 
+    		    // files are dropped here:
+    		    this.on("addedfile", function() {
+    		      // Show submit button here and/or inform user to click it.
+    		    });
+    		  }
+    
+    		};
+    
+    </script>
+	<h5>Manage your content</h5>
+    <hr>
+    
+    <!-- <form action='/createMeetup' method="post" enctype="multipart/form-data"> -->
+    <form id="my-awesome-dropzone" class="dropzone" action="/createMeetup">
+    <div class="dropzone-previews"></div>
+    <div class="form-group">
+    <label for="meetupTheme">Theme</label>
+    <select class="form-control" id="meetupTheme" name="meetupTheme">
+    	{% for theme in themeResults %}
+    		{% if theme.name %}
+    			<option>{{theme.name}}<option>
+    		{% endif %}
+    	{% endfor %}
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="meetupName">Name</label>
+    <input type="text" class="form-control" id="meetupName" name="meetupName" placeholder="Enter Meetup Name">
+  </div>
+  <div class="form-group">
+    <label for="meetupTags">Select Tags</label>
+    <select multiple class="form-control" id="meetupTags" name="meetupTags[]">
+      <option>Free</option>
+      <option>Paid</option>
+      <option>Kid-Friendly</option>
+      <option>Weekends</option>
+      <option>On-Campus</option>
+      <option>Off-Campus</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="meetupDescription">Description</label>
+    <textarea class="form-control" name="meetupDescription" id="meetupDescription" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+    <!-- <label for="meetupImage">Upload Image</label>
+    <input type="file" class="form-control-file" id="meetupImage" name="meetupImage"> -->
+    <input name="location" id="searchTextField" type="text" size="50">
+  </div>
+  <button type="button" class="btn btn-default btn-primary">Cancel</button>
+  <button id="submit-all" type="submit" class="btn btn-default btn-primary">Create</button>
+</form>
+<!-- <form action="/createMeetup" class="dropzone" id="my-dropzone"></form> -->
+
+      
+{% endblock %}
