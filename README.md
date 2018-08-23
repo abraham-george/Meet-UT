@@ -1,52 +1,13 @@
-# Guestbook
+# Meet-UT
 
-Guestbook is an example application showing basic usage of Google App
-Engine. Users can read & write text messages and optionally log-in with
-their Google account. Messages are stored in App Engine (NoSQL)
-High Replication Datastore (HRD) and retrieved using a strongly consistent
-(ancestor) query.
+This app is built using Python and webapp2. It was done as part of my first semester project at UT Austin. The app is built around the concept of crowd sourcing. The idea was to come up with an app that would serve as a one stop shop for all events at UT. Google App engine serves as the backend for the app.
 
-## Products
-- [App Engine][1]
+# Screens
+<img width="764" alt="screen-4" src="https://user-images.githubusercontent.com/7443951/44506932-3de79280-a66e-11e8-9f88-ab96233fc075.png">
 
-## Language
-- [Python][2]
+<img width="723" alt="screen-5" src="https://user-images.githubusercontent.com/7443951/44506945-4cce4500-a66e-11e8-8ae6-4b97765320d4.png">
 
-## APIs
-- [NDB Datastore API][3]
-- [Users API][4]
+<img width="765" alt="screen-6" src="https://user-images.githubusercontent.com/7443951/44506956-56f04380-a66e-11e8-9779-54bfb070fba1.png">
 
-## Dependencies
-- [webapp2][5]
-- [jinja2][6]
-- [Twitter Bootstrap][7]
+<img width="697" alt="screen-7" src="https://user-images.githubusercontent.com/7443951/44506963-6079ab80-a66e-11e8-91df-60db767cdcd5.png">
 
-[1]: https://developers.google.com/appengine
-[2]: https://python.org
-[3]: https://developers.google.com/appengine/docs/python/ndb/
-[4]: https://developers.google.com/appengine/docs/python/users/
-[5]: http://webapp-improved.appspot.com/
-[6]: http://jinja.pocoo.org/docs/
-[7]: http://twitter.github.com/bootstrap/
-
-
-## E2E Test for this sample app
-
-A Makefile is provided to deploy and run the e2e test.
-
-To run:
-
-     export GAE_PROJECT=your-project-id
-     make
-
-To manually run, install the requirements
-
-    pip install -r e2e/requirements-dev.txt
-
-Set the environment variable to point to your deployed app:
-
-    export GUESTBOOK_URL="http://guestbook-test-dot-useful-temple-118922.appspot.com/"
-
-Finally, run the test
-
-    python e2e/test_e2e.py
